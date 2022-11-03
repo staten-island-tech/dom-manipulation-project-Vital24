@@ -1,14 +1,8 @@
 
-body {
-    align-content: center;
-}
-#bbbox {
-    background-color: black;
 
-    
-}
 
 #text, #bbbox {
     color: white;
+    background-color: black;
 
 }
