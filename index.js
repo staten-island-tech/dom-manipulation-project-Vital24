@@ -1,23 +1,14 @@
-const button = document.getElementById("btn");
-const text = document.querySelector("#text");
+const gens = document.querySelectorAll(".pokemon");
+console.log(gens);
 
-console.log(text);
+const genArray = Array.from(gens); //Makes it a Array
+const gen1 = genArray.filter((array) => {
+  //cant fitler a NodeList gotta make it a array
+  if (array.classList[1] === "gen1") {
+    return true;
+  }
+  return false;
+});
 
-const Domsel = {
-  button: document.getElementById("btn"),
-  text: document.querySelector("#text"),
-  box: document.querySelector("#bbbox"),
-  points: document.querySelectorAll(".point"),
-};
-
-console.log(Domsel.box);
-
-function backandtext(background, text) {
-  background.style.backgroundColor = "red";
-  text.innerHTML = "this is now a big red box";
-  text.style.fontSize = "40px";
-}
-
-// !== filters everything other than element mentioned
-
-backandtext(Domsel.box, Domsel.text);
+const = gen2ar = Array.from(document.querySelectorAll('gen2')
+console.log(gen1);
