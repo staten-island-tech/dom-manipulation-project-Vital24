@@ -1,14 +1,27 @@
-const gens = document.querySelectorAll(".pokemon");
-console.log(gens);
+const Domsel = {
+  button: document.getElementById("btn"),
+  text: document.querySelector("#text"),
+  box: document.querySelector("#bbbox"),
+  points: document.querySelectorAll(".point"), //node list
+};
 
-const genArray = Array.from(gens); //Makes it a Array
-const gen1 = genArray.filter((array) => {
-  //cant fitler a NodeList gotta make it a array
-  if (array.classList[1] === "gen1") {
-    return true;
-  }
-  return false;
-});
+function backandtext(background, text) {
+  background.style.backgroundColor = "purple";
+  text.innerHTML = "this is now a big red box";
+  text.style.fontSize = "40px";
+  text.style.color = "white";
+}
 
-const = gen2ar = Array.from(document.querySelectorAll('gen2')
-console.log(gen1);
+Domsel.button.addEventListener("click", function () {
+  backandtext(Domsel.box, Domsel.text);
+}); // takes two agruements, event and callback function
+
+function changeLi() {
+  Domsel.points.forEach((point) => {
+    point.addEventListener(click, function () {
+      point.textContent = "NA Pokemon";
+    });
+    console.log(point);
+  });
+}
+changeLi();
