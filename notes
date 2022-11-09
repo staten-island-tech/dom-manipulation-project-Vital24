@@ -40,3 +40,33 @@ const gen2 = gen2ar.map((item) => item.innerHTML);
 
 console.log(gen1);
 console.log(gen2);
+
+const Domsel = {
+  button: document.getElementById("btn"),
+  text: document.querySelector("#text"),
+  box: document.querySelector("#bbbox"),
+  points: document.querySelectorAll(".gen1  "), //node list
+};
+
+function backandtext(background, text) {
+  background.style.backgroundColor = "purple";
+  text.innerHTML = "this is now a big red box";
+  text.style.fontSize = "40px";
+  text.style.color = "white";
+}
+
+Domsel.button.addEventListener("click", function () {
+  backandtext(Domsel.box, Domsel.text);
+}); // takes two agruements, event and callback function
+
+function changeLi() {
+  let pointIndex = 1;
+  Domsel.points.forEach((point) => {
+    point.addEventListener("click", function () {
+      point.textContent = `Hello I am point ${pointIndex}`;
+      pointIndex++;
+    });
+    console.log(point);
+  });
+}
+changeLi();
