@@ -70,3 +70,19 @@ function changeLi() {
   });
 }
 changeLi();
+
+const Domsel = {
+  button: document.getElementById("btn"),
+  box: document.getElementById("container-box"),
+  input: document.querySelector("#input"),
+};
+
+// const cat = "Meow";
+// Domsel.box.insertAdjacentHTML("afterend", `<h1>We are an ${cat}</h1>`);
+
+Domsel.button.addEventListener("click", function () {
+  let input = Domsel.input.value;
+  Domsel.box.insertAdjacentHTML("beforeend", `<p>${input}</p>`);
+  Domsel.input.value = "";
+  console.log(input);
+}); // use submit event for buttons
