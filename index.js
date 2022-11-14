@@ -1,7 +1,8 @@
 const DOMselectors = {
-  button: document.getElementById("btn"),
-  box: document.querySelector(".container-box"),
-  input: document.querySelectorAll("#input"),
+  submit: document.querySelector("#form"),
+  button: document.querySelector(".btn"),
+  box: document.querySelector(".info"),
+  input: document.querySelectorAll(".input"),
 };
 
 const Info = {
@@ -9,13 +10,14 @@ const Info = {
   lname: "",
   age: "",
   gender: "",
-  race: "",
+  grade: "",
 };
 
-DOMselectors.button.addEventListener("click", function () {
+console.log(DOMselectors.submit, DOMselectors.button);
+DOMselectors.submit.addEventListener("submit", function (e) {
+  e.defaultPrevented();
   let input = DOMselectors.input.value;
   DOMselectors.box.insertAdjacentHTML("beforeend", `<p>${input}</p>`);
-  DOMselectors.input.value = "";
 
   console.log(input);
 });
