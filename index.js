@@ -1,23 +1,36 @@
 const DOMselectors = {
   submit: document.querySelector("#form"),
-  button: document.querySelector(".btn"),
-  box: document.querySelector(".info"),
-  input: document.querySelectorAll(".input"),
+  box: document.querySelector(".info-card"),
+  input: document.querySelectorAll(".text-box"),
 };
 
-const Info = {
-  fname: "",
-  lname: "",
-  age: "",
-  gender: "",
-  grade: "",
-};
+// const Info = {
+//   fname: "",
+//   lname: "",
+//   age: "",
+//   gender: "",
+//   grade: "",
+// };
 
-console.log(DOMselectors.submit, DOMselectors.button);
-DOMselectors.submit.addEventListener("submit", function (e) {
-  e.defaultPrevented();
-  let input = DOMselectors.input.value;
-  DOMselectors.box.insertAdjacentHTML("beforeend", `<p>${input}</p>`);
+console.log(
+  DOMselectors.submit,
+  DOMselectors.button,
+  DOMselectors.box,
+  DOMselectors.input
+);
+DOMselectors.submit.addEventListener("submit", function (abc) {
+  abc.preventDefault();
 
-  console.log(input);
+  let input = DOMselectors.input; //array of results/values
+  let person = {};
+  console.log(input[0]);
+  person.firstName = input[0].value;
+  person.lastName = input[1].value;
+  person.gender = input[2].value;
+  console.log(person);
+
+  DOMselectors.box.insertAdjacentHTML(
+    "beforeend",
+    `<H6>First name: ${person.firstName} \nLast name: ${person.lastName}</H6>`
+  );
 });

@@ -82,6 +82,7 @@ const Domsel = {
 
 Domsel.button.addEventListener("click", function () {
   let input = Domsel.input.value;
+
   Domsel.box.insertAdjacentHTML("beforeend", `<p>${input}</p>`);
   Domsel.input.value = "";
   console.log(input);
