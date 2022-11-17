@@ -15,7 +15,6 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
 
   let input = DOMselectors.input; //array of results/values
   let person = {};
-  let img = {};
   console.log(input[0]);
   person.firstName = input[0].value;
   person.lastName = input[1].value;
@@ -23,13 +22,11 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
   person.music = input[3].value;
   person.color = input[4].value;
   person.picture = input[5].value;
-  img.src = `"${person.picture}"`;
-  console.log(person);
 
   DOMselectors.box.insertAdjacentHTML(
     "beforeend",
-    `<H5>First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>`
+
+    `<img class="info-img" src="${person.picture}"/>
+            <H5>First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>`
   );
-  console.log(input[5].value);
-  DOMselectors.box.append(img.src);
 });
