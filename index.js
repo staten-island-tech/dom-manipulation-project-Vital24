@@ -2,14 +2,20 @@ const DOMselectors = {
   submit: document.querySelector("#form"),
   box: document.querySelector(".info-card"),
   input: document.querySelectorAll(".text-box"),
+  remove: document.querySelector(".remove"),
 };
 
 console.log(
   DOMselectors.submit,
-  DOMselectors.button,
+  DOMselectors.remove,
   DOMselectors.box,
   DOMselectors.input
 );
+
+function removes() {
+  document.querySelector("#form").reset();
+}
+
 DOMselectors.submit.addEventListener("submit", function (abc) {
   abc.preventDefault();
 
@@ -22,9 +28,9 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
   person.music = input[3].value;
   person.color = input[4].value;
   person.picture = input[5].value;
-
+  removes();
   DOMselectors.box.insertAdjacentHTML(
-    "beforeend",
+    "afterbegin",
 
     `<img class="info-img" src="${person.picture}"/>
             <H5>First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>`
