@@ -2,7 +2,13 @@ const DOMselectors = {
   submit: document.querySelector("#form"),
   box: document.querySelector(".info-card"),
   input: document.querySelectorAll(".text-box"),
+  reset: document.querySelector("#info"),
 };
+
+function removeDummy() {
+  let perinfo = document.getElementById("jake");
+  perinfo.parentNode.removeChild([perinfo]);
+}
 
 console.log(
   DOMselectors.submit,
@@ -27,6 +33,17 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
     "beforeend",
 
     `<img class="info-img" src="${person.picture}"/>
-            <H5>First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>`
+    <H5 id="jake">First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>`
   );
+  console.log(DOMselectors.input);
+  DOMselectors.input = "";
+  console.log(DOMselectors.input);
+});
+removeDummy();
+
+DOMselectors.reset.addEventListener("reset", function (abc) {
+  abc.preventDefault();
+  let input = DOMselectors.input;
+  DOMselectors.input = "";
+  console.log(input);
 });
