@@ -12,29 +12,21 @@ console.log(
   DOMselectors.input
 );
 
-function removes() {
-  document.querySelector("#form").reset();
-}
-
 function clear() {
   document.getElementById("form").reset();
 }
 
 function pop() {
-  let input = DOMselectors.input; //array of results/values
-  let person = {};
-  console.log(input[0]);
-  person.firstName = input[0].value;
+  let per;
   let idss = `#${person.firstName}`;
   // select the target element
-  let removal = document.getElementById(idss);
+  let removal = document.getElementById("idss");
   // remove the last list item
-  removal.removeChild(removal);
+  removal.parentElement.removeChild(removal);
   console.log("poop");
 }
-DOMselectors.submit.addEventListener("submit", function (abc) {
-  abc.preventDefault();
 
+function info() {
   let input = DOMselectors.input; //array of results/values
   let person = {};
   console.log(input[0]);
@@ -44,14 +36,19 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
   person.music = input[3].value;
   person.color = input[4].value;
   person.picture = input[5].value;
-  removes();
+  return person;
+}
+DOMselectors.submit.addEventListener("submit", function (abc) {
+  abc.preventDefault();
+
+  let person = info();
   clear();
 
   DOMselectors.box.insertAdjacentHTML(
     "afterbegin",
 
     `
-    <div id="${person.firstName}>
+    <div id="#${person.firstName}">
     <img class="info-img" src="${person.picture}"/>
     
     <H5 >First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>
@@ -59,9 +56,18 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
     <button class="remove">Remove</>
     </div>`
   );
-  console.log(person);
+
+  console.log(`poop ${person}`);
 });
 
 DOMselectors.remove.addEventListener("click", function () {
   pop();
+});
+
+function removal(event) {
+  event.target.remove();
+}
+
+document.querySelectorAll("remove").forEach((button) => {
+  button.addEventListener("click", removal);
 });
