@@ -1,29 +1,11 @@
 const DOMselectors = {
   submit: document.querySelector("#form"),
-  box: document.querySelector(".info-card"),
+  box: document.querySelector(".dog"),
   input: document.querySelectorAll(".text-box"),
-  remove: document.querySelector(".remove"),
 };
-
-console.log(
-  DOMselectors.submit,
-  DOMselectors.remove,
-  DOMselectors.box,
-  DOMselectors.input
-);
 
 function clear() {
   document.getElementById("form").reset();
-}
-
-function pop() {
-  let per;
-  let idss = `#${person.firstName}`;
-  // select the target element
-  let removal = document.getElementById("idss");
-  // remove the last list item
-  removal.parentElement.removeChild(removal);
-  console.log("poop");
 }
 
 function info() {
@@ -38,9 +20,13 @@ function info() {
   person.picture = input[5].value;
   return person;
 }
+
+function removal(event) {
+  event.target.parentElement.remove();
+}
+
 DOMselectors.submit.addEventListener("submit", function (abc) {
   abc.preventDefault();
-
   let person = info();
   clear();
 
@@ -48,26 +34,16 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
     "afterbegin",
 
     `
-    <div id="#${person.firstName}">
-    <img class="info-img" src="${person.picture}"/>
+    <div class="info-card">
+          
+      <img class="info-img" src="${person.picture}"/>
     
-    <H5 >First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>
-    
-    <button class="remove">Remove</>
+      <H5 >First name: ${person.firstName}<br>Last name: ${person.lastName}<br>Gender: ${person.gender}<br>Favorite Music: ${person.music}<br>Favorite Color: ${person.color}</H5>
+      <button class="remove">Remove Album</button>
+  
     </div>`
   );
-
-  console.log(`poop ${person}`);
-});
-
-DOMselectors.remove.addEventListener("click", function () {
-  pop();
-});
-
-function removal(event) {
-  event.target.remove();
-}
-
-document.querySelectorAll("remove").forEach((button) => {
-  button.addEventListener("click", removal);
+  document.querySelectorAll(".remove").forEach((button) => {
+    button.addEventListener("click", removal);
+  });
 });
