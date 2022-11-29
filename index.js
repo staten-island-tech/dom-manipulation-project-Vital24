@@ -25,11 +25,8 @@ function removal(event) {
   event.target.parentElement.remove();
 }
 
-DOMselectors.submit.addEventListener("submit", function (abc) {
-  abc.preventDefault();
+function inject() {
   let person = info();
-  clear();
-
   DOMselectors.box.insertAdjacentHTML(
     "afterbegin",
 
@@ -43,6 +40,11 @@ DOMselectors.submit.addEventListener("submit", function (abc) {
   
     </div>`
   );
+}
+DOMselectors.submit.addEventListener("submit", function (abc) {
+  abc.preventDefault();
+  clear();
+  inject();
   document.querySelectorAll(".remove").forEach((button) => {
     button.addEventListener("click", removal);
   });
